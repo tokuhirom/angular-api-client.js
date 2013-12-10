@@ -1,4 +1,4 @@
-This is an HTTP client library based on HTTP client.
+This is a tiny api client library for AngularJS.
 
 # License
 
