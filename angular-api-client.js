@@ -2,14 +2,14 @@
 /* license: public domain */
 // Usage:
 //
-//  angular.module('api', ['ngAPIClient'])
-//  .factory('$api', function ($apiClient) {
+//  angular.module('api', ['AngularAPIClient'])
+//  .factory('$api', function (AngularAPIClient) {
 //    return {
-//      entry: $apiClient.make([
+//      entry: AngularAPIClient.make([
 //        ['query',  'GET',  '/entry/query'],
 //        ['create', 'POST', '/entry/create'],
 //      ]),
-//      member: $apiClient.make([
+//      member: AngularAPIClient.make([
 //        ['query',  'GET',  '/member/query'],
 //      ])
 //    };
@@ -17,8 +17,8 @@
 (function () {
   "use strict";
 
-  angular.module('ngAPIClient', ['ng'])
-  .factory('$apiClient', ['$http', function ($http) {
+  angular.module('AngularAPIClient', ['ng'])
+  .factory('AngularAPIClient', ['$http', function ($http) {
     var create_method = function (info) {
       var http_method = info[1];
       var endpoint    = info[2];

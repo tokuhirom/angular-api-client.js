@@ -4,14 +4,14 @@ This is a tiny api client library for AngularJS.
 
 Define resource class.
 
-    angular.module('myapp.api', ['ngAPIClient'])
-    .factory('$api', function ($apiClient) {
+    angular.module('myapp.api', ['AngularAPIClient'])
+    .factory('api', function (AngularAPIClient) {
       return {
-        entry: $apiClient.make([
+        entry: AngularAPIClient.make([
           ['query',  'GET',  '/entry/query'],
           ['create', 'POST', '/entry/create'],
         ]),
-        member: $apiClient.make([
+        member: AngularAPIClient.make([
           ['query',  'GET',  '/member/query'],
         ])
       };
@@ -20,11 +20,16 @@ Define resource class.
 And use it.
 
     angular.module('myapp', ['myapp.api'])
-    .controller('EntryCtrl', function ($api) {
+    .controller('EntryCtrl', function (api) {
       $api.entry.query({}, function (dat) {
         $scope.rows = $scope.rows.concat(dat.rows);
       });
     });
+
+# TESTING
+
+    > culr http://cpanmin.us/ | perl - Plack
+    > plackup test.psgi
 
 # LICENSE
 
